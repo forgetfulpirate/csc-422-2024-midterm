@@ -5,9 +5,6 @@ plugins {
     alias(libs.plugins.serialization)
     id("kotlin-parcelize")
     id("kotlinx-serialization")
-    id("com.google.devtools.ksp")
-    id("kotlin-parcelize")
-    id("kotlinx-serialization")
 }
 
 android {
@@ -90,27 +87,27 @@ dependencies {
 
 
     //Dagger - Hilt
-    implementation("com.google.dagger:hilt-android:2.45")
+    implementation("com.google.dagger:hilt-android:2.49")
 
-    implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
+    implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
     implementation("com.google.dagger:dagger-android-support:2.45")
 
     // Icons
-    implementation("androidx.compose.material:material-icons-extended:1.6.5")
-    implementation("com.google.firebase:firebase-inappmessaging-ktx:20.4.1")
+    implementation("androidx.compose.material:material-icons-extended:1.6.6")
+    implementation("com.google.firebase:firebase-inappmessaging-ktx:20.4.2")
 
     // Splash screen
     implementation("androidx.core:core-splashscreen:1.0.1")
 
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
-    implementation("androidx.activity:activity-compose:1.8.2")
+    implementation("androidx.activity:activity-compose:1.9.0")
     implementation(platform("androidx.compose:compose-bom:2024.04.00"))
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3:1.2.1")
     implementation("androidx.compose.material3:material3-window-size-class:1.2.1")
-    implementation("androidx.compose.ui:ui-graphics-android:1.6.5")
+    implementation("androidx.compose.ui:ui-graphics-android:1.6.6")
     implementation("com.google.android.engage:engage-core:1.4.0")
     implementation("com.google.android.gms:play-services-mlkit-subject-segmentation:16.0.0-beta1")
     implementation("com.google.android.material:material:1.11.0")
@@ -127,9 +124,9 @@ dependencies {
 
     //external implementations
     implementation ("androidx.compose.foundation:foundation:1.6.5")
-    implementation ("androidx.compose.foundation:foundation-layout:1.6.5")
-    implementation ("androidx.compose.ui:ui-tooling:1.6.5")
-    implementation ("androidx.compose.runtime:runtime-livedata:1.6.5")
+    implementation ("androidx.compose.foundation:foundation-layout:1.6.6")
+    implementation ("androidx.compose.ui:ui-tooling:1.6.6")
+    implementation ("androidx.compose.runtime:runtime-livedata:1.6.6")
 
     //Material 3 Core
     implementation ("com.maxkeppeler.sheets-compose-dialogs:core:1.0.2")
