@@ -14,11 +14,17 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
+import androidx.compose.material.icons.filled.Visibility
+import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -36,25 +42,32 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
+//import com.miguel.ktorapp.R
+//import com.nbscvincent.csc4222024midterm.R
+import com.nbsvincent.ktorapp.R
+
 @Composable
 fun LogInScreen() {
 
-    var email by remember { mutableStateOf("") }
-    var isTextFieldFocused by remember { mutableStateOf(false) }
     val scrollState = rememberScrollState()
 
     Scaffold(
         bottomBar = {
             BottomAppBar(
-                modifier = Modifier.height(295.dp).verticalScroll(scrollState),
-                containerColor = Color.White
+                modifier = Modifier
+                    .height(100.dp)
+                    .verticalScroll(scrollState),
+                containerColor = Color.Black
             ) {
                 Column(
                     modifier = Modifier
                         .padding(start = 25.dp, end = 25.dp, top = 0.dp, bottom = 0.dp)
                         .fillMaxSize()
                         .fillMaxWidth()
-                        .background(Color.White),
+                        .background(Color.Black),
                     verticalArrangement = Arrangement.spacedBy(10.dp),
                     horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
@@ -88,7 +101,7 @@ fun LogInScreen() {
                 .padding(innerPadding)
                 .fillMaxSize()
                 .fillMaxWidth()
-                .background(Color.White),
+                .background(Color.Black),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(0.dp)
         ) {
@@ -98,29 +111,71 @@ fun LogInScreen() {
                 text = "Fishbook",
                 fontWeight = FontWeight.Bold,
                 fontSize = 30.sp,
-                color = Color.Black
+                color = Color.White
             )
             Text(
                 text = "Welcome to Fishbook",
                 fontWeight = FontWeight.Normal,
                 fontSize = 15.sp,
-                color = Color.Black
+                color = Color.White
             )
-            Spacer(modifier = Modifier.height(50.dp))
-            OutlinedTextField(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(start = 25.dp, end = 25.dp),
-                shape = RoundedCornerShape(10.dp),
-                value = email,
-                label = {
-                    Text(text = "Username", color = Color.Black)
-                },
-            )
+            Spacer(modifier = Modifier.height(80.dp))
+            
+            Image(painter = painterResource(id = R.drawable.ic_launcher_foreground),
+                contentDescription = "Fitness Logo",
+                modifier = Modifier.size(100.dp))
+            
+            MyOutlinedTextField()
 
-            Spacer(modifier = Modifier.height(15.dp))
         }
 
     }
 }
 
+@Composable
+fun MyOutlinedTextField() {
+
+    var passwordShow: Boolean by remember { mutableStateOf(false) }
+    var username by remember { mutableStateOf("") }
+    var password by remember { mutableStateOf("") }
+    OutlinedTextField(
+        value = username,
+        onValueChange = { username = it },
+        label = { Text("Username") },
+        modifier = Modifier
+            .padding(16.dp)
+            .fillMaxWidth()
+    )
+//
+//    Spacer(modifier = Modifier.height(5.dp))
+
+    OutlinedTextField(
+        value = password,
+        onValueChange = { password = it },
+        label = { Text("Password") },
+        modifier = Modifier
+            .padding(16.dp)
+            .fillMaxWidth(),
+
+        trailingIcon = {
+            val image = if (passwordShow)
+                Icons.Filled.Visibility
+            else
+                Icons.Filled.VisibilityOff
+
+            val description = if (passwordShow) "Hide Password" else "Show Password"
+
+            IconButton(onClick = {
+                passwordShow = !passwordShow
+            }) {
+                Icon(imageVector = image, contentDescription =  description, tint = Color.Red)
+            }
+        },
+        singleLine = true,
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+        visualTransformation = if (passwordShow) VisualTransformation.None else PasswordVisualTransformation(),
+
+
+    )
+
+}
