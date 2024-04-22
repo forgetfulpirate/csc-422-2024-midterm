@@ -17,9 +17,9 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Email
-import androidx.compose.material.icons.filled.Visibility
-import androidx.compose.material.icons.filled.VisibilityOff
+import androidx.compose.material.icons.filled.AccountCircle
+import androidx.compose.material.icons.filled.Lock
+import androidx.compose.material.icons.outlined.Lock
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -27,8 +27,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
-import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -45,9 +43,10 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
-import com.nbscvincent.csc4222024midterm.R
+//import com.miguel.midterm.R
+
 //import com.miguel.ktorapp.R
-//import com.nbscvincent.csc4222024midterm.R
+import com.nbscvincent.csc4222024midterm.R
 
 @Composable
 fun LogInScreen() {
@@ -105,25 +104,25 @@ fun LogInScreen() {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(0.dp)
         ) {
-            Spacer(modifier = Modifier.height(30.dp))
+            Spacer(modifier = Modifier.height(50.dp))
 
             Text(
                 text = "Fishbook",
                 fontWeight = FontWeight.Bold,
-                fontSize = 30.sp,
+                fontSize = 40.sp,
                 color = Color.White
             )
             Text(
                 text = "Welcome to Fishbook",
                 fontWeight = FontWeight.Normal,
-                fontSize = 15.sp,
+                fontSize = 20.sp,
                 color = Color.White
             )
             Spacer(modifier = Modifier.height(80.dp))
             
             Image(painter = painterResource(id = R.drawable.ic_launcher_foreground),
                 contentDescription = "Fitness Logo",
-                modifier = Modifier.size(100.dp))
+                modifier = Modifier.size(120.dp))
             
             MyOutlinedTextField()
 
@@ -131,7 +130,6 @@ fun LogInScreen() {
 
     }
 }
-
 @Composable
 fun MyOutlinedTextField() {
 
@@ -144,7 +142,13 @@ fun MyOutlinedTextField() {
         label = { Text("Username") },
         modifier = Modifier
             .padding(16.dp)
-            .fillMaxWidth()
+            .fillMaxWidth(),
+
+        trailingIcon = {
+            Icon(imageVector = Icons.Filled.AccountCircle, contentDescription = "null", tint = Color.Red)
+        },
+        singleLine = true,
+
     )
 //
 //    Spacer(modifier = Modifier.height(5.dp))
@@ -159,9 +163,9 @@ fun MyOutlinedTextField() {
 
         trailingIcon = {
             val image = if (passwordShow)
-                Icons.Filled.Visibility
+                Icons.Filled.Lock
             else
-                Icons.Filled.VisibilityOff
+                Icons.Outlined.Lock
 
             val description = if (passwordShow) "Hide Password" else "Show Password"
 
