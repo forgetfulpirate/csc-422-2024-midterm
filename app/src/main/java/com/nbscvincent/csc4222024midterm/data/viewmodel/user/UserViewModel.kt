@@ -17,7 +17,7 @@ class UserViewModel(
 ) : ViewModel() {
     var userList by mutableStateOf<List<User>>(emptyList())
 
-    suspend fun getUsers(user: List<User>) {
+    suspend fun getUsers() {
         try {
             val users = onlineUserRepository.getUsers()
             userList = users
@@ -29,7 +29,7 @@ class UserViewModel(
 
     suspend fun validateUser(username: String, password: String): User? {
         return try {
-            val user = userRepository.getUserByUsernameAndPassword(username, password)
+            val user = onlineUserRepository.getUserByUsernameAndPassword(username, password)
             user?.let {
                 // Set the logged-in user as the LoggedInUser holder
                 UserLoggedIn.setLoggedInUser(UserLogIn(it.id, it.firstName, it.lastName,it.gender, it.username, it.password, it.email, it.phone, it.image))

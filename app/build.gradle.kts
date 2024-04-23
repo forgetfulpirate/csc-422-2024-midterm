@@ -44,7 +44,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.1"
+        kotlinCompilerExtensionVersion = "1.5.3"
     }
     packaging {
         resources {
@@ -55,7 +55,11 @@ android {
 
 dependencies {
 
-    implementation ("com.jakewharton.timber:timber:4.7.1")
+    // Icons
+    implementation("androidx.compose.material:material-icons-extended:1.6.5")
+    implementation("com.google.firebase:firebase-inappmessaging-ktx:20.4.1")
+
+    implementation ("com.jakewharton.timber:timber:5.0.1")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -74,6 +78,17 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+
+    val nav_version = "2.7.7"
+    implementation("androidx.navigation:navigation-compose:$nav_version")
+    implementation("androidx.compose.material:material-icons-extended")
+    implementation("androidx.datastore:datastore-preferences:1.0.0")
+
+    val work_version = "2.9.0"
+    // Kotlin + coroutines
+    implementation("androidx.work:work-runtime-ktx:$work_version")
+
 
     // ktor for networking
     val ktor_version = "2.2.2"
@@ -97,4 +112,15 @@ dependencies {
 
     implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
     implementation("com.google.dagger:dagger-android-support:2.45")
+
+    val room_version = "2.6.1"
+    //Room
+    implementation("androidx.room:room-runtime:$room_version")
+    implementation("androidx.core:core-ktx:1.12.0")
+    ksp("androidx.room:room-compiler:$room_version")
+    implementation("androidx.room:room-ktx:$room_version")
+    implementation("androidx.room:room-common:$room_version")
+    implementation("androidx.room:room-runtime:$room_version")
+
+    implementation ("io.coil-kt:coil-compose:1.4.0")
 }

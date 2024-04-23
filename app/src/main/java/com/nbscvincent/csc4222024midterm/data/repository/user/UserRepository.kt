@@ -11,5 +11,5 @@ interface UserRepository{
 
     suspend fun deleteUser(id: Int): Boolean
 
-    suspend fun getUserByUsernameAndPassword(username: String, password: String): User?
+    suspend fun getUsersByUsernameAndPassword(username: String, password: String): List<User?>
 }

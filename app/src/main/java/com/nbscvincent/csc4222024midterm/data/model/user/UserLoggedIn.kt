@@ -42,7 +42,7 @@ fun init(context: Context) {
         Log.i("UserLoggedIn", "Logged Out: ${_userLoggedIn.value}")
     }
 
-    fun getUsers(): UserLogIn? {
+    fun getUser(): UserLogIn? {
         return _userLoggedIn.value
     }
 
