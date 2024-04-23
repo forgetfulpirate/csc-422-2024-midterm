@@ -21,9 +21,9 @@ import io.ktor.util.InternalAPI
 @OptIn(InternalAPI::class)
 class OnlineUserRepository (private val ktorClient: HttpClient = KtorClient())
 
-val ktorClient: HttpClient = KtorClient()
-     suspend fun  getUsers(): List<User> {
-        val response: UserProfile = ktorClient.request(HttpRoutes.USERS){
+
+      suspend fun  getUsers(): List<User> {
+        val response: UserProfile = KtorClient().request(HttpRoutes.USERS){
             method = HttpMethod.Get
             url(HttpRoutes.USERS)
             contentType(ContentType.Application.Json)

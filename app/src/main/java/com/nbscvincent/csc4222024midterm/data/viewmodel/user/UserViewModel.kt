@@ -17,7 +17,7 @@ class UserViewModel(
 ) : ViewModel() {
     var userList by mutableStateOf<List<User>>(emptyList())
 
-    suspend fun getUsers() {
+    suspend fun getUsers(){
         try {
             val users = onlineUserRepository.getUsers()
             userList = users

@@ -1,5 +1,6 @@
 package com.nbscvincent.csc4222024midterm.data.model.user
 
+
 import androidx.room.Entity
 import kotlinx.serialization.Serializable
 

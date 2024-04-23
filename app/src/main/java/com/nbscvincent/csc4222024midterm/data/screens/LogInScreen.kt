@@ -43,7 +43,8 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
-import com.miguel.midterm.R
+import com.nbscvincent.csc4222024midterm.R
+
 //import com.miguel.midterm.R
 
 //import com.miguel.ktorapp.R
