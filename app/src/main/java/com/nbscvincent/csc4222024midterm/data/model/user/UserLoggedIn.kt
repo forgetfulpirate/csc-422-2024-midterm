@@ -5,6 +5,8 @@ import android.content.SharedPreferences
 import android.util.Log
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import com.google.gson.Gson
+
 
 object UserLoggedIn {
 

@@ -47,9 +47,10 @@ import androidx.compose.ui.text.input.VisualTransformation
 
 //import com.miguel.ktorapp.R
 import com.nbscvincent.csc4222024midterm.R
+import com.nbscvincent.csc4222024midterm.data.viewmodel.user.UserViewModel
 
 @Composable
-fun LogInScreen() {
+fun LogInScreen(viewModel: UserViewModel) {
 
     val scrollState = rememberScrollState()
 
