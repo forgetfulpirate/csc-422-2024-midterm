@@ -8,11 +8,11 @@ plugins {
 }
 
 android {
-    namespace = "com.nbscvincent.csc4222024midterm"
+    namespace = "com.miguel.midterm"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.nbscvincent.csc4222024midterm"
+        applicationId = "com.miguel.midterm"
         minSdk = 28
         targetSdk = 33
         versionCode = 1
